@@ -31,3 +31,5 @@ override.tf.json
 /.idea/
 .idea
 .idea/
+
+*/terraform.tfvars
