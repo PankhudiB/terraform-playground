@@ -49,4 +49,10 @@
 
     * terraform state list -> shows all resource
 -------------    
+    
+    TF output 
+    -> u can see only after u have atleast done tf apply once
+    -> u can evaluate it in tf console too
 
+    "terraform output"
+    
