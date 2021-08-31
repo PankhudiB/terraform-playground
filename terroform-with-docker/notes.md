@@ -72,5 +72,9 @@
     
     U cant use count.index in output |
     It can only be used in module , resource & data blocks
+-------------
+
+    how do u use DRY for output
+    Splat -> [*] & for loop
     
     

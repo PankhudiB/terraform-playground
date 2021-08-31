@@ -29,17 +29,17 @@ resource "docker_container" "nodered_container" {
   }
 }
 
-//output "IP-Address" {
-//  value = docker_container.nodered_container.ip_address
-//  description = "IP Address"
-//}
-//
-//output "ip-and-port" {
-//  value = join(":", [docker_container.nodered_container.ip_address, docker_container.nodered_container.ports[0].external])
-//  description = "IP Address and port - using tf func"
-//}
-//
-//output "container-name" {
-//  value = docker_container.nodered_container.name
-//  description = "container name"
-//}
+output "IP-Address" {
+  value       = [for i in docker_container.nodered_container[*] : i.ip_address]
+  description = "IP Address"
+}
+
+output "ip-and-port" {
+  value       = [for i in docker_container.nodered_container[*] : join(":", [i.ip_address], i.ports[*]["external"])]
+  description = "IP Address and port - using tf func and for loop"
+}
+
+output "container-name" {
+  value       = [for i in docker_container.nodered_container[*] : i.name]
+  description = "container name"
+}
