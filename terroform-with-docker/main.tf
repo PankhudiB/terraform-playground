@@ -26,3 +26,8 @@ output "IP-Address" {
   value = docker_container.nodered_container.ip_address
   description = "IP Address"
 }
+
+output "ip-and-port" {
+  value = join(":", [docker_container.nodered_container.ip_address, docker_container.nodered_container.ports[0].external])
+  description = "IP Address and port - using tf func"
+}
