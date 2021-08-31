@@ -55,4 +55,11 @@
     -> u can evaluate it in tf console too
 
     "terraform output"
+-------------
+
+    What if now you want multiple resources of the same type 
+    example - in our case multiple docker containers
+    instead of duplicating the resource multiple times
+    -> use random_string resource 
+    
     

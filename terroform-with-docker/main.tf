@@ -13,9 +13,15 @@ resource "docker_image" "nodered_image" {
   name = "nodered/node-red:latest"
 }
 
+resource "random_string" "random" {
+  length = 4
+  special = false
+  upper = false
+}
+
 resource "docker_container" "nodered_container" {
   image = docker_image.nodered_image.latest
-  name = "nodered"
+  name = join("-",["nodered",random_string.random.result])
   ports {
     internal = 1880
     external = 1880
@@ -30,4 +36,9 @@ output "IP-Address" {
 output "ip-and-port" {
   value = join(":", [docker_container.nodered_container.ip_address, docker_container.nodered_container.ports[0].external])
   description = "IP Address and port - using tf func"
+}
+
+output "container-name" {
+  value = docker_container.nodered_container.name
+  description = "container name"
 }
