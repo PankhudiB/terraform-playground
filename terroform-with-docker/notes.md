@@ -61,5 +61,16 @@
     example - in our case multiple docker containers
     instead of duplicating the resource multiple times
     -> use random_string resource 
+-------------
+
+    Now i want 2 random_strings without listing them twice
+    Use Count feature
+
+    2 random_string & 2 nodered_container
+    use count.index
+    -> also u ll need 2 external port -> if u just remove -> tf will randomly assign -> so leave it on to tf 
+    
+    U cant use count.index in output |
+    It can only be used in module , resource & data blocks
     
     
