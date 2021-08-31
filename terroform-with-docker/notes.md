@@ -19,5 +19,9 @@
     -> u ll see a binary in .terraform directory 
     -> terraform uses this go binary to access the docker API
 
+    Resource -> is an infrastructure component
+    in our example its a docker image -> name -> actual image name
+    
+    After running terraform apply -> and you do "docker images" in local -> u ll find the image u put in resource
     
     
