@@ -10,20 +10,43 @@
 
     eg ~> 2.12.0 -> it can allow 2.12.xyz...
     eg ~> 2.15 -> it can allow 2.xyz...
-    
-    
+-------------    
     We are spinning up in local
     provider "docker" {} -> kept empty -> if it had been aws -> then region and all needs to be there
     
     once u do terraform init 
     -> u ll see a binary in .terraform directory 
     -> terraform uses this go binary to access the docker API
+-------------
 
     Resource -> is an infrastructure component
     in our example its a docker image -> name -> actual image name
     
     After running terraform apply -> and you do "docker images" in local -> u ll find the image u put in resource
 
+-------------
+
     Referencing 1 resource from another
+
+-------------
+    TF State -> terraform.tfstate 
+        -> serial is updated everytime (eg resource ..) 
+        -> lineage created -> when deployment is initially created 
+        -> bcoz of dependency section -> TF knows in which order to apply || destroy infra
+            -> in our docker container case -> fetching the docker image is dependency
     
+    terraform.tfstate.backup -> a backcup
+
+    Running tf destroy -> clears the terraform.tfstate 
+        -> but the last state is always maintained in the .backup
     
+    * terraform.tfstate not encrypted by default
+    
+    * PRO tip:
+ 
+    install jq to access tfstate
+    Use "terraform show -json | jq"
+
+    * terraform state list -> shows all resource
+-------------    
+
