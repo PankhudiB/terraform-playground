@@ -23,5 +23,7 @@
     in our example its a docker image -> name -> actual image name
     
     After running terraform apply -> and you do "docker images" in local -> u ll find the image u put in resource
+
+    Referencing 1 resource from another
     
     
