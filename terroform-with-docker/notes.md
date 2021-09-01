@@ -76,5 +76,16 @@
 
     how do u use DRY for output
     Splat -> [*] & for loop
-    
+-------------
+
+    Tainting 
+     -> force a resource to destroy and re apply
+     -> rebooting a daemon or service
+     -> for reload config 
+    better described : https://www.terraform.io/docs/cli/commands/taint.html
+
+    Import 
+    you can import a container using tf import
+    and each resource has how it can be imported -> in our case docker container id
+
     
