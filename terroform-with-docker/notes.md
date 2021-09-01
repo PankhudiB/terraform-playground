@@ -88,4 +88,6 @@
     you can import a container using tf import
     and each resource has how it can be imported -> in our case docker container id
 
-    
+-------------
+
+    Terraform variable

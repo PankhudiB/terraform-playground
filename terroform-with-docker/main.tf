@@ -6,6 +6,10 @@ terraform {
     }
   }
 }
+variable "int_port" {
+  type = number
+  default = 1880
+}
 
 provider "docker" {}
 
@@ -25,7 +29,7 @@ resource "docker_container" "nodered_container" {
   image = docker_image.nodered_image.latest
   name = join("-",["nodered",random_string.random[count.index].result])
   ports {
-    internal = 1880
+    internal = var.int_port
   }
 }
 
