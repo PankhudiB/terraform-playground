@@ -94,3 +94,12 @@
 -------------
     
     .tf the name doesnt matter
+-------------
+
+    Security of variables
+    -> always add terraform.tfvars in gitignore
+    add "int_port = 1880" in terraform.tfvars
+
+-------------
+    u can type in sensitive=true in the variable -> to not let it show in tf plan
+-------------
