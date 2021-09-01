@@ -6,15 +6,6 @@ terraform {
     }
   }
 }
-variable "int_port" {
-  type = number
-  default = 1880
-
-  validation {
-    condition = var.int_port <= 65535 && var.int_port > 0
-    error_message = "The port must be in a valid port range 0 - 65535."
-  }
-}
 
 provider "docker" {}
 
@@ -36,19 +27,4 @@ resource "docker_container" "nodered_container" {
   ports {
     internal = var.int_port
   }
-}
-
-output "IP-Address" {
-  value       = [for i in docker_container.nodered_container[*] : i.ip_address]
-  description = "IP Address"
-}
-
-output "ip-and-port" {
-  value       = [for i in docker_container.nodered_container[*] : join(":", [i.ip_address], i.ports[*]["external"])]
-  description = "IP Address and port - using tf func and for loop"
-}
-
-output "container-name" {
-  value       = [for i in docker_container.nodered_container[*] : i.name]
-  description = "container name"
 }
